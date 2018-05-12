@@ -1,0 +1,102 @@
+if (isModular.toBoolean()&&testModuleB.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+
+}
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+    }
+
+    sourceSets {
+        main {
+            if (isModular.toBoolean()) {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                //集成开发模式下排除debug文件夹中的所有Java文件
+                java {
+                    exclude 'debug/**'
+                }
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+
+}
+
+
+repositories {
+    maven {
+        url "http://maven.aliyun.com/nexus/content/repositories/releases"
+    }
+    maven { url 'https://dl.google.com/dl/android/maven2/' }
+    flatDir {
+        dirs 'libs'   // aar目录
+    }
+}
+
+
+dependencies {
+
+    if(isModular.toBoolean()&&testModuleB.toBoolean())  {
+        implementation project(':sdklib')
+        implementation 'com.android.support:multidex:1.0.2'
+        implementation 'com.android.support:appcompat-v7:27.1.0'
+        implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    } else {
+        api project(':sdklib')
+        api rootProject.ext.dependencies.appcompat
+        api 'com.android.support.constraint:constraint-layout:1.0.2'
+    }
+
+    api rootProject.ext.dependencies.routerapi
+    api "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    api 'com.android.support.constraint:constraint-layout:1.1.0'
+    kapt 'com.alibaba:arouter-compiler:1.1.4'
+    api "org.jetbrains.anko:anko:$anko_version"
+
+}
+
+

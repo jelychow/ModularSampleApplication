@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    api rootProject.ext.dependencies.v4
+    api rootProject.ext.dependencies.appcompat
+    api rootProject.ext.dependencies.design
+    api 'com.qmuiteam:qmui:1.0.7'
+
+//    api rootProject.ext.dependencies.nineoldandroids
+    api rootProject.ext.dependencies.recyclerview
+
+//    //页面路由
+//    implementation rootProject.ext.dependencies.routerapi
+//    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+
+    api "android.arch.lifecycle:extensions:$arc_version"
+    api "android.arch.lifecycle:common-java8:$arc_version"
+    api "android.arch.lifecycle:reactivestreams:$arc_version"
+    api 'com.zhihu.android:matisse:0.4.3'
+    api 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+}

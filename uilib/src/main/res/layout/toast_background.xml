@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <TextView
+        android:textColor="#fff"
+        android:textSize="16sp"
+        android:padding="5dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/custom_toast_bg"
+        android:alpha="0.9"
+        android:text="宝象金融已经切换到后台！"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</FrameLayout>

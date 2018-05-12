@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ModularSampleApplication.iml" filepath="$PROJECT_DIR$/ModularSampleApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/loginLib/loginLib.iml" filepath="$PROJECT_DIR$/loginLib/loginLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/moduleA/moduleA.iml" filepath="$PROJECT_DIR$/moduleA/moduleA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/moduleB/moduleB.iml" filepath="$PROJECT_DIR$/moduleB/moduleB.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reslib/reslib.iml" filepath="$PROJECT_DIR$/reslib/reslib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sdklib/sdklib.iml" filepath="$PROJECT_DIR$/sdklib/sdklib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/uilib/uilib.iml" filepath="$PROJECT_DIR$/uilib/uilib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/utilsLib/utilsLib.iml" filepath="$PROJECT_DIR$/utilsLib/utilsLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/utilsLib/utilsmodule.iml" filepath="$PROJECT_DIR$/utilsLib/utilsmodule.iml" />
+    </modules>
+  </component>
+</project>

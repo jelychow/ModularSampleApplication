@@ -1,0 +1,1 @@
+include ':app', ':sdklib', ':uilib', ':reslib', ':utilsLib', ':loginLib', ':moduleA', ':moduleB'

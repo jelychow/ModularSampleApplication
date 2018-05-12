@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.qmuiteam.qmui.widget.QMUITopBar android:id="@+id/topbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/qmui_topbar_height"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+</com.qmuiteam.qmui.widget.QMUITopBar>
